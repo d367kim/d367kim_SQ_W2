@@ -21,8 +21,11 @@ let platforms = [
   { x: 160, y: 150, w: 100, h: 16 }, // left high platform
   { x: 360, y: 320, w: 110, h: 16 }, // centre low platform
   { x: 620, y: 290, w: 130, h: 16 }, // far right platform
-  { x: 820, y: 260, w: 150, h: 16 }, // very far right platform
+  { x: 450, y: 100, w: 120, h: 16, type: "wasabi" }, //special platform
 ];
+
+let bgImg;
+let characterImg;
 
 // ------------------------------------------------------------
 // PLAYER OBJECT — same structure as Example 1
@@ -64,6 +67,12 @@ const PLATFORM_COLOR = [255, 160, 50]; // warm orange
 // Runs once at the very start of the sketch.
 // Sets up the canvas and positions the player on the ground.
 // ============================================================
+
+function preload() {
+  bgImg = loadImage("assets/images/background.jpg");
+  characterImg = loadImage("assets/images/character.png");
+}
+
 function setup() {
   createCanvas(800, 450);
 
@@ -79,6 +88,7 @@ function setup() {
 // ============================================================
 function draw() {
   
+  image(bgImg, 0, 0, width, height);
 
   handleInput();
   applyPhysics();
@@ -204,9 +214,15 @@ function resolvePlatformCollisions() {
       playerBottom <= platTop + 20;
 
     if (overlapsHorizontally && landingOnTop) {
-      player.y = platTop - player.r; // snap to platform surface
-      player.vy = 0;                 // stop falling
-      player.onGround = true;        // allow jumping again
+      player.y = platTop - player.r;
+
+      if (p.type === "wasabi") {
+        player.vy = -18;
+        player.onGround = false;
+      } else {
+        player.vy = 0;
+        player.onGround = true;
+      }
     }
   }
 }
@@ -218,12 +234,18 @@ function resolvePlatformCollisions() {
 // of objects — enemies, coins, tiles, etc.
 // ------------------------------------------------------------
 function drawPlatforms() {
-  fill(PLATFORM_COLOR[0], PLATFORM_COLOR[1], PLATFORM_COLOR[2]);
   noStroke();
 
   for (let i = 0; i < platforms.length; i++) {
     let p = platforms[i];
-    rect(p.x, p.y, p.w, p.h, 6); // rounded corners
+
+    if (p.type === "wasabi") {
+      fill(80, 220, 80);
+    } else {
+      fill(PLATFORM_COLOR[0], PLATFORM_COLOR[1], PLATFORM_COLOR[2]);
+    }
+
+    rect(p.x, p.y, p.w, p.h, 6);
   }
 }
 
@@ -234,35 +256,9 @@ function drawPlatforms() {
 // push() and pop() save and restore drawing settings so
 // styles set here don't affect other drawing functions.
 // ------------------------------------------------------------
+
 function drawPlayer() {
-  push(); // save current drawing settings
-
-  fill(0, 200, 180); // teal
-  noStroke();
-
-  beginShape();
-  let numPoints = 48; // more points = smoother shape
-  for (let i = 0; i < numPoints; i++) {
-    let angle = (TWO_PI / numPoints) * i;
-
-    // noise() returns a smooth random value between 0 and 1.
-    // We use it to push each vertex in or out slightly.
-    let noiseVal = noise(cos(angle) * 0.8 + blobT, sin(angle) * 0.8 + blobT);
-
-    // map() converts noise (0–1) to a radius offset (-7 to +7 pixels)
-    let r = player.r + map(noiseVal, 0, 1, -7, 7);
-
-    // Convert polar coordinates (angle, radius) to x/y
-    vertex(player.x + cos(angle) * r, player.y + sin(angle) * r);
-  }
-  endShape(CLOSE);
-
-  // Draw two simple eyes
-  fill(10);
-  ellipse(player.x - 7, player.y - 5, 7, 7);
-  ellipse(player.x + 7, player.y - 5, 7, 7);
-
-  pop(); // restore drawing settings
+  image(characterImg, player.x - 25, player.y - 25, 50, 50);
 }
 
 // ------------------------------------------------------------
