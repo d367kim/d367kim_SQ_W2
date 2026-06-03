@@ -19,12 +19,13 @@ The console will show any errors in your sketch.
 
 ## Assets
 
-Background image from Unsplash [1].
-
-Character PNG from PNGTree [2].
+| File                                        | Purpose |
+| ------------------------------------------- | ------- |
+| `assets/images/background.jpg`              | Sushi themed start screen background |
+| `assets/images/character.png`               | Maki themed fighting arena background |
 
 ## References
 
-[1] K. Yoshino. n.d. Restaurant interior with chef behind counter. Unsplash. Retrieved May 20, 2026 from https://unsplash.com/photos/5jAfMVcE0Ag
+K. Yoshino. n.d. Restaurant interior with chef behind counter. Unsplash. Retrieved May 20, 2026 from https://unsplash.com/photos/5jAfMVcE0Ag
 
-[2] PNGTree. n.d. Funny sushi roll cartoon character. PNG image. Retrieved May 20, 2026 from https://pngtree.com/freepng/funny-sushi-roll-cartoon-character_20680751.html
+PNGTree. n.d. Funny sushi roll cartoon character. PNG image. Retrieved May 20, 2026 from https://pngtree.com/freepng/funny-sushi-roll-cartoon-character_20680751.html
