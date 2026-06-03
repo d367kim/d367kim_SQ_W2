@@ -21,11 +21,11 @@ The console will show any errors in your sketch.
 
 | File                                        | Source |
 | ------------------------------------------- | ------- |
-| `assets/images/background.jpg`              | K. Yoshino.Unsplash |
-| `assets/images/character.png`               | I got image from PNGTree |
+| `assets/images/background.jpg`              | [1] K. Yoshino.Unsplash |
+| `assets/images/character.png`               | [2] I got image from PNGTree |
 
 ## References
 
-K. Yoshino. n.d. Restaurant interior with chef behind counter. Unsplash. Retrieved May 20, 2026 from https://unsplash.com/photos/5jAfMVcE0Ag
+[1] K. Yoshino. n.d. Restaurant interior with chef behind counter. Unsplash. Retrieved May 20, 2026 from https://unsplash.com/photos/5jAfMVcE0Ag
 
-PNGTree. n.d. Funny sushi roll cartoon character. PNG image. Retrieved May 20, 2026 from https://pngtree.com/freepng/funny-sushi-roll-cartoon-character_20680751.html
+[2] PNGTree. n.d. Funny sushi roll cartoon character. PNG image. Retrieved May 20, 2026 from https://pngtree.com/freepng/funny-sushi-roll-cartoon-character_20680751.html
