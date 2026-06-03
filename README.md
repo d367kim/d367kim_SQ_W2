@@ -19,10 +19,10 @@ The console will show any errors in your sketch.
 
 ## Assets
 
-| File                                        | Purpose |
+| File                                        | Source |
 | ------------------------------------------- | ------- |
-| `assets/images/background.jpg`              | Sushi themed start screen background |
-| `assets/images/character.png`               | Maki themed fighting arena background |
+| `assets/images/background.jpg`              | K. Yoshino.Unsplash |
+| `assets/images/character.png`               | I got image from PNGTree |
 
 ## References
 
